@@ -1,0 +1,82 @@
+{
+  "allow_private": {
+    "description": "私聊里可以用",
+    "type": "bool",
+    "default": true
+  },
+  "allow_group": {
+    "description": "群里可以用",
+    "type": "bool",
+    "default": false,
+    "hint": "默认关。打开后所有群都能用；只想开给几个群就再填下面的白名单。"
+  },
+  "group_whitelist": {
+    "description": "群白名单（群号）",
+    "type": "list",
+    "default": [],
+    "hint": "空 = 不限。填了就只有这些群能用。"
+  },
+  "enable_llm_tools": {
+    "description": "让机器人的模型自己调用（doujin_search / doujin_find_source / hanime_search / hanime_find_source）",
+    "type": "bool",
+    "default": true,
+    "hint": "关掉以后只能用指令。也可以在 AstrBot 的「函数工具」里单独开关某一个。"
+  },
+  "eh_ipb_member_id": {
+    "description": "E 站 cookie：ipb_member_id",
+    "type": "string",
+    "default": "",
+    "hint": "可不填（不填走表站 e-hentai.org）。三个都填就走里站 exhentai.org，结果更全。在浏览器登录 E 站后，从开发者工具的 Cookie 里复制。"
+  },
+  "eh_ipb_pass_hash": {
+    "description": "E 站 cookie：ipb_pass_hash",
+    "type": "string",
+    "default": ""
+  },
+  "eh_igneous": {
+    "description": "E 站 cookie：igneous（进里站要）",
+    "type": "string",
+    "default": ""
+  },
+  "saucenao_api_key": {
+    "description": "SauceNAO API key",
+    "type": "string",
+    "default": "",
+    "hint": "可不填。填了「本子出处」「里番出处」没把握时会多问一次 SauceNAO。免费注册：https://saucenao.com/user.php"
+  },
+  "browser_cdp": {
+    "description": "浏览器远程调试地址（可选）",
+    "type": "string",
+    "default": "",
+    "hint": "例：http://127.0.0.1:9222。soutubot（残页找本子最准）和被 Cloudflare 拦住的 hanime1 要借一个真浏览器：用 --remote-debugging-port=9222 启动 Chrome，弹人机验证时你自己在那个浏览器里点一下。不填：soutubot 不能用，hanime1 被拦时改查 AniList。"
+  },
+  "proxy": {
+    "description": "代理（可选）",
+    "type": "string",
+    "default": "",
+    "hint": "例：http://127.0.0.1:7890。空 = 用系统环境变量里的代理，没有就直连。"
+  },
+  "block_tags": {
+    "description": "不想看的标签 / 词",
+    "type": "list",
+    "default": [],
+    "hint": "命中的不列出来。可以写 E 站标签（male:yaoi、female:guro）、hanime1 的标签（獵奇）或片名里的词。涉及未成年的内容是内置屏蔽的，不用写、也关不掉。"
+  },
+  "max_results": {
+    "description": "一次最多列几条",
+    "type": "int",
+    "default": 8,
+    "hint": "1~15"
+  },
+  "prefer_language": {
+    "description": "本子优先哪种语言",
+    "type": "string",
+    "default": "chinese",
+    "options": ["chinese", "japanese", "english", "korean"]
+  },
+  "send_cover_grid": {
+    "description": "发带序号的封面拼图",
+    "type": "bool",
+    "default": true
+  }
+}

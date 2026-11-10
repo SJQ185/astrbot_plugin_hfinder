@@ -1,0 +1,6 @@
+name: astrbot_plugin_hfinder
+display_name: 找本子 · 找里番
+desc: 找本子（E 站 + N 站，按标签 / 排行榜）、本子以图找出处（soutubot / E 站 / SauceNAO）、找里番（hanime1 / AniList）、里番截图找出处（trace.moe）。内置未成年红线，关不掉。
+version: 1.0.0
+author: SJQ185
+repo: https://github.com/SJQ185/astrbot_plugin_hfinder

@@ -1,0 +1,3 @@
+# AstrBot 官方镜像里都已经有了；自己装的 AstrBot 缺哪个装哪个
+Pillow>=9.0
+websockets>=11.0
