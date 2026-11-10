@@ -130,20 +130,23 @@ class Net:
                             return (res.get("result") or {}).get("value")
                     raise TimeoutError
 
+                want = "{0.scheme}://{0.netloc}".format(urllib.parse.urlsplit(url))
                 ready = False
                 for _ in range(40):                       # 等加载完，最多 20 秒
                     time.sleep(0.5)
                     try:
-                        state = evaluate("document.readyState + '|' + document.title + '|' + "
+                        state = evaluate("location.origin + '|' + document.readyState + '|' + document.title + '|' + "
                                          "((document.body && document.body.innerText) || '').slice(0, 400)", 5) or ""
                     except NetError:
                         raise
                     except Exception:  # noqa: BLE001
                         continue
-                    _, title, body = (str(state).split("|", 2) + ["", ""])[:3]
+                    origin, rs, title, body = (str(state).split("|", 3) + ["", "", ""])[:4]
+                    if origin != want:                    # 新标签页一开始是 about:blank（readyState 也是 complete），要等它真到了站点
+                        continue
                     if CHALLENGE_TITLE.search(title) or "正在进行安全验证" in body or "Enable JavaScript and cookies" in body:
                         continue
-                    if state.startswith(("complete", "interactive")):
+                    if rs in ("complete", "interactive"):
                         ready = True
                         break
                 if not ready:

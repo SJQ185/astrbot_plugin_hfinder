@@ -4,7 +4,7 @@
 
 **AstrBot 插件：按标签搜本子 / 里番，或者丢一张图找出处**
 
-![AstrBot](https://img.shields.io/badge/AstrBot-%E2%89%A54.0-blue)
+![AstrBot](https://img.shields.io/badge/AstrBot-v4.28.2%20%E5%AE%9E%E6%B5%8B-blue)
 ![Python](https://img.shields.io/badge/Python-%E2%89%A53.10-3776AB)
 ![License](https://img.shields.io/badge/License-MIT-green)
 ![18+](https://img.shields.io/badge/内容-18%2B-red)
@@ -63,7 +63,11 @@ git clone https://github.com/SJQ185/astrbot_plugin_hfinder.git
 
 依赖只有 Pillow 和 websockets，AstrBot 官方 Docker 镜像里都已经装好。截视频找出处要 ffmpeg，官方镜像也有。
 
+在 AstrBot v4.28.2 上实测过（QQ / OneBot 接入）。其他 4.x 版本应该也能用，遇到问题欢迎提 Issue。
+
 装好以后**默认只在私聊里能用**。要在群里用，到「插件配置」里打开「群里可以用」，建议同时填上群白名单。
+
+> ⚠️ **QQ 风控**：封面拼图里是本子 / 里番的封面缩略图，在 QQ 这类平台上可能被判成违规图片，轻则发不出去，重则机器人账号被限制。在乎账号的话，到配置里关掉「发封面拼图」，只回文字和链接。
 
 ## 用法
 
@@ -99,7 +103,7 @@ git clone https://github.com/SJQ185/astrbot_plugin_hfinder.git
 | 不想看的标签 / 词 | | 命中的不列出来。例：`male:yaoi`、`NTR`，或者某个作者名 |
 | 一次最多列几条 | 8 | 1~15 |
 | 本子优先语言 | 中文 | 中文 / 日文 / 英文 / 韩文 |
-| 发封面拼图 | 发 | 关掉只回文字 |
+| 发封面拼图 | 发 | 关掉只回文字和链接（在乎 QQ 风控的建议关） |
 
 ### 浏览器（可选，但很有用）
 
@@ -152,6 +156,12 @@ E 站 cookie 过期了，重新从浏览器里复制三个值填进去。
 
 **trace.moe / SauceNAO / soutubot 说次数用完了？**
 它们都有每日免费次数（trace.moe 免登录每 24 小时 100 次，按出口 IP 算），第二天恢复。
+
+**soutubot 说「当前搜索任务较多」？**
+它那边正忙，过半分钟再试。
+
+**封面拼图发不出去，或者机器人被 QQ 警告？**
+拼图里是成人封面，容易触发平台的图片审核。到配置里关掉「发封面拼图」。
 
 **群里发指令没反应？**
 默认只开私聊。去插件配置里打开「群里可以用」。
